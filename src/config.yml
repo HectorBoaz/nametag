@@ -1,0 +1,37 @@
+# Configuração do plugin NameTags
+# Versão: 1.0.0
+
+# Configurações gerais
+mostrar-na-cabeca: true   # Define se a tag aparece acima da cabeça dos jogadores
+
+# Tags disponíveis
+# Formato:
+# <nome>:
+#   display: <texto de exibição (suporta cores com &)>
+#   prioridade: <número> # Quanto menor, mais alto no TAB
+#   permissao: <permissão necessária para usar a tag> # Opcional
+
+tags:
+  dono:
+    display: "&4[DONO]"
+    prioridade: 1
+    permissao: "nametags.dono"
+
+  admin:
+    display: "&c[ADMIN]"
+    prioridade: 2
+    permissao: "nametags.admin"
+
+  mod:
+    display: "&2[MOD]"
+    prioridade: 3
+    permissao: "nametags.mod"
+
+  vip:
+    display: "&6[VIP]"
+    prioridade: 4
+    permissao: "nametags.vip"
+
+  membro:
+    display: "&7[MEMBRO]"
+    prioridade: 5

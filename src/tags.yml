@@ -1,0 +1,9 @@
+# Armazenamento das tags dos jogadores
+# Este arquivo é gerenciado automaticamente pelo plugin
+
+# Formato:
+# players:
+#   <UUID do jogador>: <nome da tag>
+
+players:
+# As entradas serão adicionadas automaticamente quando os jogadores receberem tags

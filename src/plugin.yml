@@ -1,0 +1,22 @@
+name: NameTags
+version: 1.0.0
+main: br.com.boazhector.Main
+api-version: 1.21
+description: Plugin de NameTags totalmente configurável para aparecer no TAB e acima da cabeça dos jogadores
+author: Hector_Boaz
+
+commands:
+  tag:
+    description: Gerencia sua tag pessoal
+    usage: /tag [nome|remover]
+    aliases: [tags]
+  tagadmin:
+    description: Comandos administrativos para gerenciar tags
+    usage: /tagadmin
+    permission: nametags.admin
+    aliases: [tagsadmin, tadmin]
+
+permissions:
+  nametags.admin:
+    description: Permite acesso aos comandos administrativos de tags
+    default: op
