@@ -9,10 +9,13 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Team;
 import org.bukkit.ChatColor;
+import br.com.boazhector.levelplugin.Main;
+
+import java.util.UUID;
 
 public class Events implements Listener {
 
-    private final Main plugin = Main.getInstance();
+    private final br.com.boazhector.Main plugin = br.com.boazhector.Main.getInstance();
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
@@ -49,18 +52,23 @@ public class Events implements Listener {
     public void updatePlayerTag(Player player) {
         String tagName = plugin.getPlayerTag(player.getUniqueId());
         String tagDisplay = plugin.getTagDisplay(tagName);
+        UUID playerUUID = player.getUniqueId();
+        String suffix = String.valueOf(Main.m.getPlayerLevel(playerUUID));
 
         // Atualizar o nome visível acima da cabeça
         if (plugin.getConfig().getBoolean("mostrar-na-cabeca", true)) {
             String prefix = tagDisplay + (tagDisplay.isEmpty() ? "" : " ");
-            player.setDisplayName(prefix + player.getName());
-            player.setPlayerListName(prefix + player.getName());
+            player.setDisplayName(prefix + player.getName() + " §a[" + suffix + "]");
+            player.setPlayerListName(prefix + player.getName() + " §a[" + suffix + "]");
         }
     }
 
     // Atualizar os times de scoreboard para exibição correta
     public void updateScoreboardTeam(Player viewer) {
         // Garantir que o jogador tenha um scoreboard
+        UUID playerUUID = viewer.getUniqueId();
+        String suffix = String.valueOf(Main.m.getPlayerLevel(playerUUID));
+
         if (viewer.getScoreboard() == Bukkit.getScoreboardManager().getMainScoreboard()) {
             viewer.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
         }
@@ -82,6 +90,7 @@ public class Events implements Listener {
                 team = scoreboard.registerNewTeam(teamName);
                 String tagDisplay = plugin.getTagDisplay(tagName);
                 team.setPrefix(tagDisplay + (tagDisplay.isEmpty() ? "" : " "));
+                team.setSuffix(" §a[" + suffix + "]");
 
                 // Definir prioridade para ordem no TAB
                 int priority = plugin.getTagPriority(tagName);

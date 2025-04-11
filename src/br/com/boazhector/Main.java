@@ -15,7 +15,7 @@ public class Main extends JavaPlugin {
     private static Main instance;
     private File tagsFile;
     private FileConfiguration tagsConfig;
-    private Map<UUID, String> playerTags = new HashMap<>();
+    public static Map<UUID, String> playerTags = new HashMap<>();
 
     @Override
     public void onEnable() {

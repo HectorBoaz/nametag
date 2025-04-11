@@ -4,6 +4,7 @@ main: br.com.boazhector.Main
 api-version: 1.21
 description: Plugin de NameTags totalmente configurável para aparecer no TAB e acima da cabeça dos jogadores
 author: Hector_Boaz
+depends: [LevelsSystem]
 
 commands:
   tag:
